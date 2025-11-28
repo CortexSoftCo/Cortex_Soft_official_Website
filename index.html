@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Solutions & Machine Learning Services Pakistan | CortexSoft</title>
+<meta name="description" content="Leading AI & machine learning company in Pakistan. Expert chatbot development, web development, computer vision, and custom software solutions for businesses.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom, #1a1a1a 0%, #2d2d2d 25%, #3a3a3a 50%, #2d2d2d 75%, #1a1a1a 100%);
+    background-attachment: fixed;
+    color: #e0e0e0;
+    overflow-x: hidden;
+}
+
+/* Header Styles */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.98) 0%, rgba(45, 45, 45, 0.98) 100%);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(200, 200, 200, 0.15);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.header.scrolled {
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.99) 0%, rgba(45, 45, 45, 0.99) 100%);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+}
+
+.logo img {
+    height: 50px;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #888;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-right: 80px;
+    padding: 120px 5% 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(80, 80, 80, 0.15), transparent);
+    border-radius: 50%;
+    top: -200px;
+    right: -200px;
+    animation: float 20s infinite ease-in-out;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(60, 60, 60, 0.1), transparent);
+    border-radius: 50%;
+    bottom: -150px;
+    left: -150px;
+    animation: float 15s infinite ease-in-out reverse;
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(30px, 30px); }
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    margin-left: 15%;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-text h5 {
+    background: linear-gradient(135deg, #38b6ff 0%, #5ce1e6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #ffffff;
+    margin-bottom: 2rem;
+}
+
+.hero-image {
+    position: relative;
+    animation: heroFloat 6s infinite ease-in-out;
+}
+
+@keyframes heroFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 600px;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
+}
+
+/* Cards Section */
+.mission-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    max-width: 1400px;
+    margin: -80px auto 0;
+    padding: 0 5%;
+    position: relative;
+    z-index: 10;
+}
+
+.card {
+    background: linear-gradient(145deg, rgba(50, 50, 50, 0.95), rgba(20, 20, 20, 0.95));
+    backdrop-filter: blur(20px);
+    border: 2px solid transparent;
+    border-radius: 25px;
+    padding: 3rem 2.5rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+.card {
+    text-align: center;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(180, 180, 180, 0.15), transparent);
+    transition: left 0.6s ease;
+}
+
+.card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 25px;
+    padding: 2px;
+    background: linear-gradient(145deg, rgba(150, 150, 150, 0.4), rgba(80, 80, 80, 0.2));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.card:hover::before {
+    left: 100%;
+}
+
+.card:hover::after {
+    opacity: 1;
+}
+
+.card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(150, 150, 150, 0.1);
+    border-color: rgba(150, 150, 150, 0.3);
+    background: linear-gradient(145deg, rgba(60, 60, 60, 0.95), rgba(30, 30, 30, 0.95));
+}
+
+.card-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.card:nth-child(1) .card-icon {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.6));
+}
+
+.card:nth-child(2) .card-icon {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 20px rgba(240, 147, 251, 0.6));
+}
+
+.card:nth-child(3) .card-icon {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 20px rgba(79, 172, 254, 0.6));
+}
+
+.card:hover .card-icon {
+    transform: scale(1.15) rotate(5deg);
+    filter: brightness(1.2);
+}
+
+.card h6 {
+    color: #fff;
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.card h6::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #38b6ff, #5ce1e6);
+    transition: width 0.4s ease;
+}
+
+.card:hover h6::after {
+    width: 120px;
+}
+
+.card p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+/* About Section */
+.about-section {
+    padding: 100px 5%;
+    position: relative;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.about-video {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    max-width: 500px;
+    max-height: 650px;
+}
+
+.about-video video {
+    width: 100%;
+    height: 650px;
+    object-fit: cover;
+    display: block;
+    border-radius: 20px;
+}
+
+.about-text h3 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+}
+
+.about-text h3 span {
+    color: #ffffff;
+}
+
+.about-text p {
+    color: #ffffff;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.about-text {
+    text-align: center;
+}
+
+.hero-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #4a4a4a, #2a2a2a);
+    padding: 1rem 2.5rem;
+    border-radius: 30px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.hero-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(128, 128, 128, 0.3);
+    background: linear-gradient(135deg, #5a5a5a, #3a3a3a);
+}
+
+/* Services Section */
+.services-section {
+    padding: 100px 5%;
+    background: rgba(18, 18, 18, 0.8);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-header h3 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+}
+
+.section-header p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background: linear-gradient(145deg, rgba(60, 60, 60, 0.95), rgba(30, 30, 30, 0.95));
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(150, 150, 150, 0.15);
+    border-radius: 25px;
+    padding: 2.5rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #38b6ff, #5ce1e6);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.service-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(56, 182, 255, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.service-card:hover::after {
+    left: 100%;
+}
+
+.service-card:hover::before {
+    transform: scaleX(1);
+}
+
+.service-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(56, 182, 255, 0.15);
+    border-color: rgba(56, 182, 255, 0.4);
+    background: linear-gradient(145deg, rgba(70, 70, 70, 0.95), rgba(40, 40, 40, 0.95));
+}
+
+.service-icon {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(56, 182, 255, 0.3);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    padding: 0;
+    background: rgba(40, 40, 40, 0.5);
+}
+
+.service-card:hover .service-icon {
+    border-color: rgba(56, 182, 255, 0.6);
+    box-shadow: 0 12px 35px rgba(56, 182, 255, 0.3);
+}
+
+.service-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-icon img {
+    transform: scale(1.05);
+}
+
+.service-card h4 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    text-align: center;
+}
+
+.service-card p {
+    color: #ffffff;
+    line-height: 1.7;
+
+    text-align: center;
+}
+
+/* Blog Section */
+.blog-section {
+    padding: 100px 5%;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.blog-card {
+    background: rgba(40, 40, 40, 0.6);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+.blog-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    border-color: #888;
+}
+
+.blog-image {
+    height: 250px;
+    overflow: hidden;
+}
+
+.blog-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.blog-card:hover .blog-image img {
+    transform: scale(1.1);
+}
+
+.blog-content {
+    padding: 2rem;
+}
+
+.blog-content h5 {
+    font-size: 1.3rem;
+    color: #e0e0e0;
+    line-height: 1.5;
+}
+
+.blog-card a {
+    text-decoration: none;
+}
+
+/* Footer */
+.footer {
+    background: rgba(18, 18, 18, 0.9);
+    padding: 60px 5% 20px;
+    border-top: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 3rem;
+    max-width: 1400px;
+    margin: 0 auto 3rem;
+}
+
+.footer-section h5 {
+    color: #b0b0b0;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.footer-section p,
+.footer-section a {
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.8;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: #fff;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-section ul li i {
+    color: #888;
+    margin-right: 0.5rem;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-icons a {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(128, 128, 128, 0.3);
+    border-radius: 50%;
+    color: #888;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    background: #666;
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(128, 128, 128, 0.3);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(128, 128, 128, 0.2);
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+    
+    .mission-cards {
+        grid-template-columns: 1fr;
+        margin-top: 2rem;
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+
+    .about-video {
+        max-width: 100%;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+    
+    .services-grid,
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="./assets/images/logo.png" alt="CortexSoft Logo" />
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="blogs.html">Projects</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h5>Transforming</h5>
+                <h1>Enterprise Intelligence Automation & Precision Software Development</h1>
+                <p>We specialize in Generative AI, MLOps, and Hyperautomation solutions for enterprises. Our expert team delivers bespoke Cloud-Native software development, LLM-powered conversational AI, and Data Analytics to maximize your operational efficiency and drive business process optimization.</p>
+            </div>
+        <div class="hero-image">
+            <img src="assets/images/compressed_image2.png" alt="AI Innovation" style="max-width: 400px; width: 100%; height: auto; margin-right: 80px;" />
+        </div>
+        </div>
+    </section>
+
+    <!-- Mission Cards -->
+    <div class="mission-cards">
+        <div class="card">
+            <i class="fa-solid fa-bullseye card-icon"></i>
+            <h6>Mission</h6>
+            <p>We deliver cutting-edge AI and innovative technology to foster digital transformation across Pakistan.</p>
+        </div>
+        <div class="card">
+            <i class="fa-solid fa-eye card-icon"></i>
+            <h6>Vision</h6>
+            <p>Globally recognized AI/ML service provider delivering industry-leading expertise and transformative customer.</p>
+        </div>
+        <div class="card">
+            <i class="fa-solid fa-gem card-icon"></i>
+            <h6>Values</h6>
+            <p>Anchored by integrity and innovation, we deliver exceptional AI solutions and build lasting partnerships.</p>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="about-content">
+            <div class="about-video">
+                <video autoplay muted loop>
+                    <source src="./assets/images/video.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="about-text">
+                <h3>Scale Your Business <span>with AI Technology</span></h3>
+                <p>Harness artificial intelligence to optimize operations, improve decision-making processes, and accelerate business growth. From intelligent automation to predictive analytics, we empower enterprises with scalable AI solutions that turn data into actionable insights.</p>
+                <p style="font-style: italic; color: rgba(255, 255, 255, 0.9); padding: 1.5rem; background: rgba(56, 182, 255, 0.1); border-left: 4px solid #38b6ff; margin: 2rem 0; border-radius: 8px;">
+                    "The best way to predict the future is to create it with intelligent technology. AI is not about replacing human intelligence—it's about amplifying it to achieve the extraordinary."
+                </p>
+                <!-- <p>Stay competitive in the digital economy with advanced machine learning and AI technologies that transform business challenges into opportunities for sustainable success and market leadership.</p> -->
+                <a href="contact.html" class="hero-btn">Get Started Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="services-section">
+        <div class="section-header">
+            <h3>Why Choose CortexSoft</h3>
+            <p>Partner with Pakistan's leading AI solutions provider to leverage cutting-edge technology for your business. We simplify artificial intelligence integration with proven expertise and customer-focused service.</p>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section class="services-section" style="padding-top: 0;">
+        <div class="services-grid">
+            <div class="service-card" onclick="window.location.href='contact.html';">
+                <div class="service-icon">
+                    <img src="./assets/images/AI chatbot.jpg" alt="AI Chatbot Development Services">
+                </div>
+                <h4>AI Chatbot Development</h4>
+                <p>Enhance customer engagement with intelligent conversational AI chatbots. Our custom chatbot solutions provide 24/7 automated support, streamline customer service, and improve response times for better user experiences.</p>
+            </div>
+            
+            <div class="service-card" onclick="window.location.href='contact.html';">
+                <div class="service-icon">
+                    <img src="./assets/images/4532.jpg" alt="Professional Web Development">
+                </div>
+                <h4>Web Development Services</h4>
+                <p>Professional web development solutions that drive results. We create responsive, SEO-optimized websites with modern designs that attract visitors, boost conversions, and establish your digital presence effectively.</p>
+            </div>
+            
+            <div class="service-card" onclick="window.location.href='contact.html';">
+                <div class="service-icon">
+                    <img src="./assets/images/Computer_vision.jpg" alt="Computer Vision Solutions">
+                </div>
+                <h4>Computer Vision Solutions</h4>
+                <p>Advanced computer vision and image recognition systems for business automation. Our AI-powered visual intelligence solutions enhance security, optimize operations, and enable accurate real-time analysis of visual data.</p>
+            </div>
+            
+            <div class="service-card" onclick="window.location.href='contact.html';">
+                <div class="service-icon">
+                    <img src="./assets/images/machine_learning.jpg" alt="Machine Learning Services">
+                </div>
+                <h4>Machine Learning Services</h4>
+                <p>Custom machine learning solutions tailored to your business needs. From predictive analytics to intelligent automation, our ML experts build AI-powered applications that uncover insights and drive data-driven decisions.</p>
+            </div>
+            
+            <div class="service-card" onclick="window.location.href='contact.html';">
+                <div class="service-icon">
+                    <img src="./assets/images/Data-Vizualisation-924x512.png" alt="Data Analytics & Visualization">
+                </div>
+                <h4>Data Analytics & Visualization</h4>
+                <p>Transform raw data into actionable business intelligence with powerful visualization tools. Our data extraction and analytics solutions create interactive dashboards that reveal insights and support strategic decision-making.</p>
+            </div>
+            
+            <div class="service-card" onclick="window.location.href='contact.html';">
+                <div class="service-icon">
+                    <img src="./assets/images/custom_website_devlopment.jpg" alt="Custom Software Development">
+                </div>
+                <h4>Custom Software Development</h4>
+                <p>Bespoke software solutions designed for your unique business requirements. We develop scalable applications that streamline workflows, enhance productivity, and deliver exceptional user experiences across all platforms.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog-section">
+        <div class="section-header">
+            <h3>Latest AI Insights & Resources</h3>
+            <p>Explore expert articles on artificial intelligence, machine learning best practices, and emerging technology trends shaping the future of business.</p>
+        </div>
+        <div class="blog-grid">
+            <div class="blog-card">
+                <a href="prompt engineering.html">
+                    <div class="blog-image">
+                        <img src="./assets/images/prompt_engineering.png" alt="Prompt Engineering Guide">
+                    </div>
+                    <div class="blog-content">
+                        <h5>Prompt Engineering: Techniques, Applications, and Best Practices for AI</h5>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="blog-card">
+                <a href="A deep drive.html">
+                    <div class="blog-image">
+                        <img src="./assets/images/Computer_Vision_Object_detection.png" alt="Computer Vision Tutorial">
+                    </div>
+                    <div class="blog-content">
+                        <h5>Computer Vision Deep Dive: Image Segmentation and Object Detection Explained</h5>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="blog-card">
+                <a href="Creating a Rag-Based Chatbot.html">
+                    <div class="blog-image">
+                        <img src="./assets/images/Rag pipeline.jpg" alt="RAG Chatbot Development">
+                    </div>
+                    <div class="blog-content">
+                        <h5>Build a RAG-Based AI Chatbot: Using Large Language Models with PDF Data</h5>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="./assets/images/logo.png" alt="CortexSoft Logo" style="height: 50px; margin-bottom: 1rem;" />
+                <p>Pakistan's leading AI and machine learning company since 2018, delivering innovative solutions for digital transformation.</p>
+                <div class="social-icons">
+                    <a href="https://github.com/CortexSoft-Co" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.instagram.com/cortexsoft.co/" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/cortex-soft-co/" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h5>Our Services</h5>
+                <ul>
+                    <li><i class="fa-solid fa-caret-right"></i> <a href="contact.html">AI Chatbot Development</a></li>
+                    <li><i class="fa-solid fa-caret-right"></i> <a href="contact.html">Web Development</a></li>
+                    <li><i class="fa-solid fa-caret-right"></i> <a href="contact.html">Computer Vision</a></li>
+                    <li><i class="fa-solid fa-caret-right"></i> <a href="contact.html">Machine Learning</a></li>
+                    <li><i class="fa-solid fa-caret-right"></i> <a href="contact.html">Data Analytics </a></li>
+                    <li><i class="fa-solid fa-caret-right"></i> <a href="contact.html">Custom Development</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><i class="fa-solid fa-caret-right"></i> <a href="index.html">Home</a></li>
+                    <li><i class="fa-solid fa-caret-right"></i> <a href="contact.html">Contact Us</a></li>
+                    <li><i class="fa-solid fa-caret-right"></i> <a href="blogs.html">Projects</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h5>Contact Information</h5>
+                <p><strong>Email:</strong> cortexsoftofficial@gmail.com</p>
+                <p><strong>Phone:</strong> +92 3315824134</p>
+                <p><strong>Location:</strong> I-10 Markaz, Islamabad, Pakistan</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright ©2025 CortexSoft Inc. All Rights Reserved. | AI Solutions Pakistan</p>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

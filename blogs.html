@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Our Projects | CortexSoft - AI Solutions Portfolio</title>
+<meta name="description" content="Explore CortexSoft's portfolio of AI projects including chatbots, computer vision, RAG systems, and web applications. Leading AI development in Pakistan.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom, #1a1a1a 0%, #2d2d2d 25%, #3a3a3a 50%, #2d2d2d 75%, #1a1a1a 100%);
+    background-attachment: fixed;
+    color: #e0e0e0;
+    overflow-x: hidden;
+}
+
+/* Header Styles */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.98) 0%, rgba(45, 45, 45, 0.98) 100%);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(200, 200, 200, 0.15);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.header.scrolled {
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.99) 0%, rgba(45, 45, 45, 0.99) 100%);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+}
+
+.logo img {
+    height: 50px;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #888;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+/* Page Header Section */
+.page-header {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 5% 60px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(80, 80, 80, 0.15), transparent);
+    border-radius: 50%;
+    top: -200px;
+    right: -200px;
+    animation: float 20s infinite ease-in-out;
+}
+
+.page-header::after {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(60, 60, 60, 0.1), transparent);
+    border-radius: 50%;
+    bottom: -150px;
+    left: -150px;
+    animation: float 15s infinite ease-in-out reverse;
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(30px, 30px); }
+}
+
+.page-header-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+}
+
+.page-header h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.page-header p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 2rem;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.breadcrumb a {
+    color: #38b6ff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+    color: #5ce1e6;
+}
+
+/* Projects Section */
+.projects-section {
+    padding: 40px 5% 100px;
+    position: relative;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-header h3 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    color: #ffffff;
+}
+
+.section-header p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background: linear-gradient(145deg, rgba(50, 50, 50, 0.95), rgba(20, 20, 20, 0.95));
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(150, 150, 150, 0.15);
+    border-radius: 25px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(180, 180, 180, 0.15), transparent);
+    transition: left 0.6s ease;
+    z-index: 1;
+}
+
+.project-card:hover::before {
+    left: 100%;
+}
+
+.project-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(150, 150, 150, 0.1);
+    border-color: rgba(150, 150, 150, 0.3);
+    background: linear-gradient(145deg, rgba(60, 60, 60, 0.95), rgba(30, 30, 30, 0.95));
+}
+
+.project-image {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.1);
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.9) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 2;
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+.project-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.project-link-btn {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #4a4a4a, #2a2a2a);
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+.project-card:hover .project-link-btn {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.project-link-btn:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.project-link-btn:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.project-link-btn:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 12px 35px rgba(128, 128, 128, 0.3);
+    background: linear-gradient(135deg, #5a5a5a, #3a3a3a);
+}
+
+.project-content {
+    padding: 2.5rem;
+}
+
+.project-title {
+    color: #ffffff;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.project-card:hover .project-title {
+    color: #38b6ff;
+}
+
+.project-description {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag {
+    padding: 0.4rem 1rem;
+    background: rgba(60, 60, 60, 0.6);
+    border: 1px solid rgba(150, 150, 150, 0.3);
+    border-radius: 20px;
+    color: #b0b0b0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.tag:hover {
+    background: rgba(80, 80, 80, 0.8);
+    border-color: #888;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Footer */
+.footer {
+    background: rgba(18, 18, 18, 0.9);
+    padding: 60px 5% 20px;
+    border-top: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 3rem;
+    max-width: 1400px;
+    margin: 0 auto 3rem;
+}
+
+.footer-section h5 {
+    color: #b0b0b0;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+}
+
+.footer-section p,
+.footer-section a {
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.8;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: #fff;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-section ul li i {
+    color: #888;
+    margin-right: 0.5rem;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-icons a {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(128, 128, 128, 0.3);
+    border-radius: 50%;
+    color: #888;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    background: #666;
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(128, 128, 128, 0.3);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(128, 128, 128, 0.2);
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .page-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .page-header h1 {
+        font-size: 2rem;
+    }
+    
+    .projects-grid {
+        gap: 2rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-image {
+        height: 250px;
+    }
+}
+</style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="./assets/images/logo.png" alt="CortexSoft Logo" />
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="blogs.html" class="active">Projects</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="page-header-content">
+            <h1>Our Projects</h1>
+            <p>Explore our cutting-edge AI and software development solutions that drive innovation and business transformation</p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span>Projects</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section">
+        <div class="projects-grid">
+            <!-- Project 1: AI Chatbot -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="./assets/images/helpmelaw.png" alt="HelpMeLaw - AI Legal Assistant">
+                    <div class="project-overlay">
+                        <div class="project-links">
+                            <a href="https://github.com/CortexSoft-Co" target="_blank" class="project-link-btn" title="View on GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://helpmelaw.us/" target="_blank" class="project-link-btn" title="Visit HelpMeLaw">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h4 class="project-title">HelpMeLaw - AI Legal Assistant</h4>
+                    <p class="project-description">HelpMeLaw is an advanced AI-powered legal assistance platform designed to democratize access to legal guidance for individuals, professionals, and businesses worldwide.  It empowers users to understand complex legal issues, draft documents, and receive expert guidance efficiently.</p>
+                    <div class="project-tags">
+                        <span class="tag">LangChain</span>
+                        <span class="tag">Flask</span>
+                        <span class="tag">NLP</span>
+                        <span class="tag">Legal Tech</span>
+                        <span class="tag">Multi-Language</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: Computer Vision -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="./assets/images/Github_Workflow.png" alt="Computer Vision Project">
+                    <div class="project-overlay">
+                        <div class="project-links">
+                            <a href="https://github.com/CortexSoft-Co" target="_blank" class="project-link-btn" title="View on GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="contact.html" class="project-link-btn" title="Get Started">
+                                <i class="fas fa-paper-plane"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h4 class="project-title">Documentation Automation Project</h4>
+                    <p class="project-description">An innovative Automation Documentation Agent that autonomously generates, reviews, and publishes structured documentation using Telegram, n8n, Notion, and GitHub, powered by a RAG pipeline that leverages uploaded PDFs and historical data to deliver accurate, context-aligned outputs.</p>
+                    <div class="project-tags">
+                        <span class="tag">n8n</span>
+                        <span class="tag">GitHub</span>
+                        <span class="tag">RAG Pipeline</span>
+                        <span class="tag">Pinecone Vector Database</span>
+                        <!-- <span class="tag">Notion</span> -->
+                        <span class="tag">OpenAI API</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3: RAG Chatbot -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="./assets/images/Buildium_Project.png" alt="RAG-Based Chatbot">
+                    <div class="project-overlay">
+                        <div class="project-links">
+                            <a href="https://github.com/CortexSoft-Co" target="_blank" class="project-link-btn" title="View on GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="contact.html" class="project-link-btn" title="Get Started">
+                                <i class="fas fa-paper-plane"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h4 class="project-title">The Iris Automation Suite: Documentation & Collections</h4>
+                    <p class="project-description">A unified solution automates documentation and intelligent rent collection by running the Iris System from days 6–30 through n8n, using Buildium data to send personalized texts, emails, and AI calls. It intelligently tracks all tenant responses and automatically creates follow-up tasks in Monday.com for property managers.</p>
+                    <div class="project-tags">
+                        <span class="tag">n8n</span>
+                        <span class="tag">Buildium</span>
+                        <span class="tag">Google Sheets</span>
+                        <span class="tag">Twilio/Bland AI</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4: Web Development -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="./assets/images/Calling Agent.png" alt="Web Development Project">
+                    <div class="project-overlay">
+                        <div class="project-links">
+                            <a href="https://github.com/CortexSoft-Co" target="_blank" class="project-link-btn" title="View on GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="contact.html" class="project-link-btn" title="Get Started">
+                                <i class="fas fa-paper-plane"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h4 class="project-title">AutoDialogue: AI Calling & Communication Agent</h4>
+                    <p class="project-description">The AutoDialogue platform is a highly customizable, all-in-one AI Calling Agent that automates high-volume customer outreach across calls, WhatsApp, and email. Leveraging an AI Call Manager and WhatsApp Agent, it intelligently processes customer intent and triggers automated cross-channel actions. All interactions are logged, and a centralized Admin & CRM Dashboard.</p>
+                    <div class="project-tags">
+                        <span class="tag">Flask</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">Retell AI</span>
+                        <span class="tag">Mongo DB</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="./assets/images/logo.png" alt="CortexSoft Logo" style="height: 50px; margin-bottom: 1rem;" />
+                <p>Pakistan's leading AI and machine learning company since 2018, delivering innovative solutions for digital transformation.</p>
+                <div class="social-icons">
+                    <a href="https://github.com/CortexSoft-Co" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.instagram.com/cortexsoft.co/" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/cortex-soft-co/" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h5>Our Services</h5>
+                <ul>
+                    <li><i class="fa-solid fa-caret-right"></i> <a href="contact.html">AI Chatbot Development</a></li>
+                    <li><i class="fa-solid fa-caret-right"></i> <a href="contact.html">Web Development</a></li>
+                    <li><i class="fa-solid fa-caret-right"></i> <a href="contact.html">Computer Vision</a></li>
+                    <li><i class="fa-solid fa-caret-right"></i> <a href="contact.html">Machine Learning</a></li>
+                    <li><i class="fa-solid fa-caret-right"></i> <a href="contact.html">Data Analytics </a></li>
+                    <li><i class="fa-solid fa-caret-right"></i> <a href="contact.html">Custom Development</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><i class="fa-solid fa-caret-right"></i> <a href="index.html">Home</a></li>
+                    <li><i class="fa-solid fa-caret-right"></i> <a href="contact.html">Contact Us</a></li>
+                    <li><i class="fa-solid fa-caret-right"></i> <a href="blogs.html">Projects</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h5>Contact Information</h5>
+                <p><strong>Email:</strong> cortexsoftofficial@gmail.com</p>
+                <p><strong>Phone:</strong> +92 3315824134</p>
+                <p><strong>Location:</strong> I-10 Markaz, Islamabad, Pakistan</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright ©2025 CortexSoft Inc. All Rights Reserved. | AI Solutions Pakistan</p>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
